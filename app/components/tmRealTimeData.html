@@ -1,5 +1,5 @@
 <!--实时数据-->
-<div class="realTimeData">
+<!--<div class="realTimeData">
   <div class="realTimeList" dw-loading="realTimeList">
     <ul>
       <li>
@@ -25,5 +25,30 @@
         <p class="count">{{realTimeData.Model.UserVisitCount}}</p>
       </li>
     </ul>
+  </div>
+</div>-->
+<div class="realTimeData">
+  <div common-header title-header="'实时数据'" show-more=false link-url="''"></div>
+  <ul>
+    <li>
+      <p class="realDataItem">注册学员人数：{{realTimeData.Model.UsersCount}}</p>
+      <p class="realDataItem">在线学员人数：{{realTimeData.Model.OnlineUsersCount}}</p>
+    </li>
+    <li>
+      <p class="realDataItem">公共课程数量：{{realTimeData.Model.CourseCount}}</p>
+      <p class="realDataItem">公安课程数量：{{realTimeData.Model.CourseCount}}</p>
+    </li>
+    <li>
+      <p class="realDataItem">现有教官数量：12</p>
+      <p class="realDataItem">今日访问次数：{{realTimeData.Model.TodayCount}}</p>
+    </li>
+    <li>
+      <p>访问学习次数：{{realTimeData.Model.UserVisitCount}}</p>
+    </li>
+  </ul>
+  <div class="link">
+    <img src="../images/linkTopImg.png" alt="">
+    <a target="_blank" ui-sref="articleDetail({ID:'146'})"><i class="fa fa-paperclip" aria-hidden="true"></i> 本地公安机关链接</a>
+    <a target="_blank" ui-sref="articleDetail({ID:'147'})"><i class="fa fa-paperclip" aria-hidden="true"></i> 公安网络学院链接</a>
   </div>
 </div>

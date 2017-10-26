@@ -82,11 +82,11 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
+        port: 9002,
         // Change this to '0.0.0.0' to access the server from outside.
         // hostname: '192.168.1.19',
         hostname: 'localhost',
-        livereload: 35729
+        livereload: 35734
       },
       livereload: {
         options: {
@@ -542,7 +542,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
     'uglify',
     'filerev',

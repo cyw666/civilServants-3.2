@@ -29,7 +29,7 @@ angular.module('luZhouApp')
       title: "",
       sort: 'Id',
       order: 'desc',
-      titleNav: "在线考试",
+      titleNav: "网上考试",
     }
   
     //考试列表请求

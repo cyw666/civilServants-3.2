@@ -1,0 +1,11 @@
+<div class="goodStudents">
+  <div common-header title-header="'优秀学员'" show-more=true link-url="'studentstyle'"></div>
+  <ul dw-loading="goodStudents">
+    <li ng-repeat="list in studyStyleData.ListData">
+      <a ui-sref="studentstyledetail({Id:list.Id})" target="_blank">
+        <img ng-src="{{studyStyleData.Path+'/'+list.Img}}" alt="优秀学员" err-src="images/noGoodStudent.png">
+      </a>
+      <p class="studentName"><a ui-sref="studentstyledetail({Id:list.Id})" target="_blank">{{list.Name}}</a></p>
+    </li>
+  </ul>
+</div>

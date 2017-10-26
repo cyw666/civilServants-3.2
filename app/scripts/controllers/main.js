@@ -134,8 +134,12 @@ angular.module('luZhouApp')
               commonService.alertMs(data.Message);
             } else if (data.Type == 7) {
             } else if (data.Type == 10) {
-              commonService.alertMs("您还不是本平台成员，将为您转向您所在的平台：" + data.Message, 2);
-              return;
+              if (window.confirm("您还不是本平台成员，将为您转向您所在的平台：" + data.Message)) {
+                window.location.href="http://"+data.Message;
+                return true;
+              } else {
+                return false;
+              }
             } else if (data.Type == 11) {
               commonService.alertMs(data.Message);
             } else if (data.Type == 12 || data.Type == 13) {
@@ -293,16 +297,36 @@ angular.module('luZhouApp')
     $scope.getRecommendCourse();
     
     //新闻资讯
-    $scope.getNewsContent = function (categoryCode) {
+    $scope.getNewsContent = function (options) {
       $loading.start('articleList');
       commonService.getData(ALL_PORT.ArticleList.url, 'POST',
-        $.extend({}, ALL_PORT.ArticleList.data, {rows: 6, CategoryCode: categoryCode}))
+        $.extend({}, ALL_PORT.ArticleList.data, options))
         .then(function (response) {
           $loading.finish('articleList');
-          $scope.articleListData = response.Data;
-          $scope.articleTop = response.Data.ListData[0];
+          if(options.CategoryCode == "trainingNews"||options.CategoryCode == "notification"||options.CategoryCode == "aroundNews"){
+            $scope.articleListData = response.Data;
+            $scope.articleListUrl = options.CategoryCode;
+            $scope.articleTop = response.Data.ListData[0];
+          }else {
+            $scope.morningArticleData = response.Data;
+            $scope.morningArticleUrl = options.CategoryCode;
+          }
         });
     };
-    $scope.getNewsContent('newsInformation');
+    $scope.getNewsContent({rows:9,CategoryCode:'trainingNews'});
+    $scope.getNewsContent({rows:6,CategoryCode:'交流体会'});
+    
+    
+    //优秀学员
+    $scope.getStudentStyle = function (options) {
+      $loading.start('studyStyle');
+      commonService.getData(ALL_PORT.StudentStyle.url,'POST',
+        $.extend({}, ALL_PORT.StudentStyle.data,options))
+        .then(function(response) {
+          $loading.finish('studyStyle');
+          $scope.studyStyleData = response.Data;
+        });
+    };
+    $scope.getStudentStyle({page:1,rows:5});
     
   });

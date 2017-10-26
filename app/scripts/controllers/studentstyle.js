@@ -34,11 +34,11 @@ angular.module('luZhouApp')
     //学员风采
     $scope.paginationConf = $.extend({},paginationConf,{itemsPerPage: 9});
     $scope.getStudentStyle = function (options) {
-      $loading.start('studyStyle');
+      $loading.start('goodStudents');
       commonService.getData(ALL_PORT.StudentStyle.url,'POST',
         $.extend({}, ALL_PORT.StudentStyle.data,options))
         .then(function(response) {
-          $loading.finish('studyStyle');
+          $loading.finish('goodStudents');
           $scope.studyStyleData = response.Data;
           $scope.paginationConf.totalItems = response.Data.Count;
         });

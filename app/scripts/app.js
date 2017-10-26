@@ -33,14 +33,14 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
-        data: {title: "干部教育网络学院-基准3.0"}
+        data: {title: "绍兴公安教育训练网络学院"}
       })
       .state('main2', {
         url: '',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main',
-        data: {title: "干部教育网络学院-基准3.0"}
+        data: {title: "绍兴公安教育训练网络学院"}
       })
       .state('courseCenter', {
         url: '/courseCenter?channelId&title&searchType',
@@ -601,11 +601,6 @@ angular
      templateUrl: 'views/testcenter.html',
      controller: 'TestcenterCtrl',
      controllerAs: 'testCenter'
-     })
-     .when('/specialTrainingCourse', {
-     templateUrl: 'views/specialtrainingcourse.html',
-     controller: 'SpecialtrainingcourseCtrl',
-     controllerAs: 'specialTrainingCourse'
      })
      .when('/csTrainingNews',{
      templateUrl: 'views/news/cstrainingnews.html',

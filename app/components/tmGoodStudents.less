@@ -1,0 +1,22 @@
+/**
+ * 优秀学员(首页)
+ */
+@import "../styles/mixins";
+.goodStudents {
+  ul{
+    .clearFix();
+    height: 204px;
+  }
+  li{
+    width: 20%;
+    .pull-left();
+    .text-center();
+    img{
+      .wh(114px,138px);
+      margin-top: 20px;
+    }
+  }
+  .studentName{
+    line-height: 50px;
+  }
+}

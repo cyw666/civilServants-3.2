@@ -279,7 +279,7 @@ angular.module('luZhouApp')
       });
     }
     //退出
-    this.loginOut = function (str) {
+    this.loginOut = function () {
       $loading.start('loginOut');
       $http({
         method: 'POST',
