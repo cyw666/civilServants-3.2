@@ -4,13 +4,13 @@
     <div class="myTab">
       <ul class="nav nav-tabs" ng-init="vm.activeTab=0">
         <li ng-class="{active: vm.activeTab == 0}" >
-          <a ng-click="vm.activeTab = 0;getNewsContent({CategoryCode:'trainingNews'})">培训动态</a>
+          <a ng-click="vm.activeTab = 0;getNewsContent({rows:9,CategoryCode:'trainingNews'})">培训动态</a>
         </li>
         <li ng-class="{active: vm.activeTab == 1}" >
-          <a ng-click="vm.activeTab = 1;getNewsContent({CategoryCode:'notification'})">通知通报</a>
+          <a ng-click="vm.activeTab = 1;getNewsContent({rows:9,CategoryCode:'notification'})">通知通报</a>
         </li>
         <li ng-class="{active: vm.activeTab == 2}" >
-          <a ng-click="vm.activeTab = 2;getNewsContent({CategoryCode:'aroundNews'})">各地动态</a>
+          <a ng-click="vm.activeTab = 2;getNewsContent({rows:9,CategoryCode:'aroundNews'})">各地动态</a>
         </li>
         <a class="more" ui-sref="article({categoryCode:articleListUrl})" target="_blank"></a>
       </ul>
