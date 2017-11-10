@@ -118,12 +118,15 @@ angular.module('luZhouApp')
               $scope.showError = true;
             } else if (data.Type == 1) {
               setUserCookie();
-              $state.go($stateParams.name,JSON.parse($stateParams.params));
+              if($stateParams.name){
+                $state.go($stateParams.name,JSON.parse($stateParams.params));
+              }else {
+                location.href="/admin"
+              }
             } else if (data.Type == 2) {
               setUserCookie();
               commonService.alertMs("首次登录，请设置密保！");
               $state.go('securitySetting');
-
             } else if (data.Type == 3) {
               if (window.confirm("帐号在别的地方登录，是否踢出？")) {
                 kickOut(data.Message);

@@ -1,11 +1,11 @@
 <!--课程超市列表-->
 <div class="courseSupermarket">
-  <div common-header title-header="'网络课堂'" show-more=false link-url="''"></div>
+  <div common-header title-header="'课程中心'" show-more=false link-url="''"></div>
   <div class="tmBorder">
     <ol class="breadcrumb">
       <li class="currentPosition"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span> 您的当前位置:</li>
       <li><a ui-sref="main">首页</a></li>
-      <li><a ui-sref="courseCenter">网络课堂</a></li>
+      <li><a ui-sref="courseCenter">课程中心</a></li>
       <li ng-if="courseSupermarketData.ChannelName==''" class="active">
         {{courseSupermarketData.TitleNav}}({{courseSupermarketData.Count}})
       </li>
@@ -60,16 +60,14 @@
                      value={{courseList.Id}}>
             </div>
             <div class="block2 pull-left" title="{{courseList.Name}}">
-              <img ng-src="{{courseSupermarketData.ImageCourse+'/'+courseList.Img}}" err-src="images/notCourse.png">
+              <img ng-src="{{courseSupermarketData.ImageCourse+courseList.Img}}" err-src="images/notCourse.png">
             </div>
             <div class="block3 pull-left">
               <div class="line line1">
-                <a class="CourseName" ui-sref="courseDetails({Id:courseList.Id})" target="_blank"
-                   title="{{courseList.Name}}">
-                  <span class="pull-left">{{courseList.Name}} </span>
-                  <span class="pull-left"
-                        ng-class="{'biXiu':courseList.RequiredFlag,'xuanXiu':!courseList.RequiredFlag}"></span>
+                <a class="CourseName pull-left" ui-sref="courseDetails({Id:courseList.Id})" target="_blank" title="{{courseList.Name}}">
+                  {{courseList.Name}}
                 </a>
+                <span class="pull-right" ng-class="{'biXiu':courseList.RequiredFlag,'xuanXiu':!courseList.RequiredFlag}"></span>
               </div>
               <div class="line line3">
                 <span style="width:72px;">学时：{{courseList.Credit}}</span>
